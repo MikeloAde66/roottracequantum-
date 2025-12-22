@@ -25,8 +25,8 @@ neo4j==5.15.0
 
 # Background Tasks
 celery==5.3.4
-redis==5.0.1     rq==1.15.1
-
+redis==5.0.1     
+rq==1.15.1
 # Authentication & Security
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
