@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RootTrace Quantum | Reconnect With Your Ancestors</title>
+    <meta name="description" content="The first quantum-powered ancestral reconnection platform for the African diaspora. Increase accuracy from 73% to 85-92% using quantum computing.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Earth tones inspired by African soil and nature */
+            --earth-dark: #2C1810;
+            --earth-brown: #654321;
+            --earth-terracotta: #B8572A;
+            --earth-ochre: #CC8844;
+            --earth-sand: #D4A574;
+            --earth-light: #F5E6D3;
+            
+            /* Accent colors */
+            --quantum-blue: #4A90E2;
+            --quantum-purple: #8B5CF6;
+            --success-green: #10B981;
+            --gold: #F59E0B;
+            
+            /* Neutrals */
+            --white: #FFFFFF;
+            --off-white: #FAF9F6;
+            --gray-light: #E5E7EB;
+            --gray-medium: #9CA3AF;
+            --black: #111827;
+            
+            /* Typography */
+            --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            --font-heading: 'SF Pro Display', -apple-system, sans-serif;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            color: var(--black);
+            background: var(--off-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-light);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--earth-brown);
+            font-family: var(--font-heading);
+        }
+        
+        .logo span {
+            color: var(--quantum-purple);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--quantum-purple);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--quantum-purple), var(--quantum-blue));
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--earth-light) 0%, var(--earth-sand) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content h1 {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--earth-dark);
+        }
+        
+        .hero-content h1 .highlight {
+            background: linear-gradient(135deg, var(--quantum-purple), var(--quantum-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-content .subtitle {
+            font-size: 1.25rem;
+            color: var(--earth-brown);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--quantum-purple);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--earth-brown);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero-visual {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quantum-visualization {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(74, 144, 226, 0.1));
+            border-radius: 50%;
+            position: relative;
+            animation: rotate 20s linear infinite;
+            box-shadow: 0 0 100px rgba(139, 92, 246, 0.2);
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .quantum-visualization::before,
+        .quantum-visualization::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+        }
+        
+        .quantum-visualization::before {
+            top: 20%;
+            left: 20%;
+            width: 60%;
+            height: 60%;
+            border: 2px solid var(--quantum-purple);
+            opacity: 0.3;
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        .quantum-visualization::after {
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            border: 2px solid var(--quantum-blue);
+            opacity: 0.2;
+            animation: pulse 4s ease-in-out infinite reverse;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.5; }
+        }
+        
+        /* How It Works Section */
+        .how-it-works {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+        
+        .section-header h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--earth-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--earth-brown);
+        }
+        
+        .steps {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--quantum-purple), var(--quantum-blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .step h3 {
+            font-size: 1.3rem;
+            color: var(--earth-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .step p {
+            color: var(--earth-brown);
+            line-height: 1.8;
+        }
+        
+        /* Quantum Advantage Section */
+        .quantum-advantage {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--earth-dark), var(--earth-brown));
+            color: var(--white);
+        }
+        
+        .advantage-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .advantage-content h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .comparison {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .comparison-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .comparison-item:last-child {
+            border-bottom: none;
+        }
+        
+        .method {
+            font-weight: 600;
+        }
+        
+        .accuracy {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--success-green);
+        }
+        
+        .quantum-badge {
+            background: linear-gradient(135deg, var(--quantum-purple), var(--quantum-blue));
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 6rem 2rem;
+            background: var(--off-white);
+        }
+        
+        .pricing-cards {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .pricing-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .pricing-card.featured {
+            border: 2px solid var(--quantum-purple);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--quantum-purple), var(--quantum-blue));
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .tier-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--earth-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tier-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--quantum-purple);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tier-price span {
+            font-size: 1rem;
+            color: var(--earth-brown);
+            font-weight: 400;
+        }
+        
+        .tier-description {
+            color: var(--earth-brown);
+            margin-bottom: 2rem;
+            min-height: 60px;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .features-list li {
+            padding: 0.75rem 0;
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .features-list li::before {
+            content: '✓';
+            color: var(--success-green);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+        
+        .choose-tier-button {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--quantum-purple), var(--quantum-blue));
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .choose-tier-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+        }
+        
+        /* Medical Heritage Section */
+        .medical-heritage {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+        
+        .medical-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .medical-benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .benefit-card {
+            background: linear-gradient(135deg, var(--earth-light), var(--white));
+            padding: 2rem;
+            border-radius: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-card h3 {
+            color: var(--earth-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--earth-dark);
+            color: var(--earth-light);
+            padding: 4rem 2rem 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links h4 {
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: var(--earth-light);
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--quantum-purple);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid var(--earth-brown);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--earth-sand);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero-container,
+            .advantage-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .steps,
+            .pricing-cards,
+            .medical-benefits {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">RootTrace <span>Quantum</span></div>
+            <ul class="nav-links">
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#science">The Science</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#medical">Medical Heritage</a></li>
+            </ul>
+            <a href="#get-started" class="cta-button">Start Your Journey</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content animate-in">
+                <h1>
+                    Reconnect With Your <span class="highlight">Ancestors</span> Using Quantum Computing
+                </h1>
+                <p class="subtitle">
+                    The first quantum-powered ancestral resolution platform for the African diaspora. 
+                    Increase regional accuracy from 73% to 85-92% — without traditional DNA testing.
+                </p>
+                <a href="#get-started" class="cta-button" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                    Begin Your Ancestral Journey →
+                </a>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">85-92%</span>
+                        <span class="stat-label">Accuracy</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">65,536</span>
+                        <span class="stat-label">Pathways Explored</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">15,000+</span>
+                        <span class="stat-label">Descendants Found</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="quantum-visualization"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="section-header">
+            <h2>How RootTrace Quantum Works</h2>
+            <p>Three powerful steps to discover your ancestral origins with unprecedented accuracy</p>
+        </div>
+        
+        <div class="steps">
+            <div class="step">
+                <div class="step-icon">🧬</div>
+                <h3>Share Your Story</h3>
+                <p>
+                    Tell us your family name, cultural traditions, stories from elders, 
+                    food preferences, and any geographic hints. No DNA test required.
+                </p>
+            </div>
+            
+            <div class="step">
+                <div class="step-icon">⚛️</div>
+                <h3>Quantum Processing</h3>
+                <p>
+                    Our quantum algorithm explores 65,536 ancestral pathways simultaneously,
+                    weighing historical records, cultural patterns, and migration data.
+                </p>
+            </div>
+            
+            <div class="step">
+                <div class="step-icon">🌍</div>
+                <h3>Discover Your Roots</h3>
+                <p>
+                    Receive your detailed ancestral report with regional breakdown, ethnic groups,
+                    coastal departure points, medical heritage, and living descendant connections.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="science" class="quantum-advantage">
+        <div class="advantage-container">
+            <div class="advantage-content">
+                <h2>The Quantum Advantage</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                    Traditional methods can only evaluate ancestral possibilities one at a time. 
+                    Quantum computing explores ALL possibilities simultaneously through superposition.
+                </p>
+                <p style="margin-bottom: 2rem;">
+                    Our QAOA (Quantum Approximate Optimization Algorithm) weights each pathway by 
+                    historical probability, then quantum interference naturally amplifies the most 
+                    likely ancestral origins.
+                </p>
+                
+                <div class="comparison">
+                    <div class="comparison-item">
+                        <span class="method">Traditional Surname Analysis</span>
+                        <span class="accuracy">~60%</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="method">Classical ML Enhancement</span>
+                        <span class="accuracy">~73%</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="method">
+                            RootTrace Quantum
+                            <span class="quantum-badge">QUANTUM-ENHANCED</span>
+                        </span>
+                        <span class="accuracy">85-92%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 20px;">
+                <h3 style="margin-bottom: 1rem;">What Makes It Possible?</h3>
+                <ul style="list-style: none; line-height: 2;">
+                    <li>✓ 16-qubit quantum circuits</li>
+                    <li>✓ 6-layer QAOA optimization</li>
+                    <li>✓ Historical slave trade database (400+ years)</li>
+                    <li>✓ Cultural marker pattern recognition</li>
+                    <li>✓ Surname etymology analysis</li>
+                    <li>✓ Geographic migration modeling</li>
+                    <li>✓ Quantum amplitude amplification</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="section-header">
+            <h2>Choose Your Journey</h2>
+            <p>Every tier includes quantum-enhanced analysis. Upgrade anytime as your journey deepens.</p>
+        </div>
+        
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <div class="tier-name">Seeker</div>
+                <div class="tier-price">$29<span>/one-time</span></div>
+                <div class="tier-description">Perfect for beginning your ancestral exploration</div>
+                
+                <ul class="features-list">
+                    <li>One quantum ancestry analysis</li>
+                    <li>Regional & ethnic breakdown</li>
+                    <li>Coastal departure identification</li>
+                    <li>Time period estimation</li>
+                    <li>Medical heritage overview</li>
+                    <li>Basic cultural resources</li>
+                </ul>
+                
+                <button class="choose-tier-button">Start Discovery</button>
+            </div>
+            
+            <div class="pricing-card featured">
+                <div class="tier-name">Connector</div>
+                <div class="tier-price">$149<span>/year</span></div>
+                <div class="tier-description">Connect with your living descendants and deepen your roots</div>
+                
+                <ul class="features-list">
+                    <li>Everything in Seeker</li>
+                    <li>Unlimited re-analyses as database improves</li>
+                    <li>Living descendants matching</li>
+                    <li>Detailed medical heritage insights</li>
+                    <li>Family tree builder</li>
+                    <li>Community forum access</li>
+                    <li>Monthly cultural workshops</li>
+                </ul>
+                
+                <button class="choose-tier-button">Connect Now</button>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="tier-name">Reunifier</div>
+                <div class="tier-price">$399<span>/year</span></div>
+                <div class="tier-description">Complete cultural reconnection with heritage travel planning</div>
+                
+                <ul class="features-list">
+                    <li>Everything in Connector</li>
+                    <li>Direct community connections in Africa</li>
+                    <li>Priority customer support</li>
+                    <li>Cultural immersion planning</li>
+                    <li>Traditional naming ceremony coordination</li>
+                    <li>Heritage travel consultation</li>
+                    <li>DNA test integration (optional)</li>
+                    <li>Lifetime accuracy guarantee</li>
+                </ul>
+                
+                <button class="choose-tier-button">Begin Reunification</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="medical" class="medical-heritage">
+        <div class="medical-container">
+            <div class="section-header">
+                <h2>Your Medical Heritage Matters</h2>
+                <p>
+                    Understanding your ancestral origins isn't just about identity — it's about health. 
+                    Different African regions have distinct genetic markers that affect disease risk, 
+                    medication response, and wellness strategies.
+                </p>
+            </div>
+            
+            <div class="medical-benefits">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏥</div>
+                    <h3>Precision Medicine</h3>
+                    <p>
+                        Know which medications work best for your genetic background and which 
+                        conditions require extra screening.
+                    </p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧬</div>
+                    <h3>Genetic Counseling</h3>
+                    <p>
+                        Share region-specific health markers with your doctor for better 
+                        family planning and preventive care.
+                    </p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h3>Health History</h3>
+                    <p>
+                        Understand patterns of sickle cell, G6PD deficiency, hypertension, 
+                        and other conditions in your ancestral population.
+                    </p>
+                </div>
+            </div>
+            
+            <p style="margin-top: 3rem; font-style: italic; color: var(--earth-brown);">
+                All medical insights are informational. Always consult healthcare professionals 
+                familiar with African diaspora health for personalized medical advice.
+            </p>
+        </div>
+    </section>
+
+    <section style="padding: 6rem 2rem; background: linear-gradient(135deg, var(--quantum-purple), var(--quantum-blue)); color: white; text-align: center;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">
+                Ready to Discover Your Ancestral Origins?
+            </h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
+                Join thousands who have reconnected with their roots using quantum computing. 
+                Your ancestors are waiting.
+            </p>
+            <a href="#get-started" class="cta-button" style="background: white; color: var(--quantum-purple); font-size: 1.1rem; padding: 1rem 2rem;">
+                Start Your Journey Today →
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>RootTrace Quantum</h3>
+                <p style="line-height: 1.8;">
+                    Using quantum computing to heal historical trauma by restoring stolen identity. 
+                    Built with consciousness technology for the African diaspora.
+                </p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#science">The Science</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#api">API Access</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#cultural">Cultural Resources</a></li>
+                    <li><a href="#medical">Medical Heritage</a></li>
+                    <li><a href="#research">Research Papers</a></li>
+                    <li><a href="#community">Community Forum</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 RootTrace Quantum by Proto Studios. Powered by quantum computing and consciousness technology.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                Part of the Proto Labs Global ecosystem | Built in partnership with Digital Digest Global
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.step, .pricing-card, .benefit-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
